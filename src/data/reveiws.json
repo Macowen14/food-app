@@ -1,0 +1,32 @@
+{
+  "reviews": [
+    {
+      "reviewId": 1,
+      "userId": 1,
+      "itemId": 101,
+      "rating": 5,
+      "comment": "Delicious burger! Highly recommend."
+    },
+    {
+      "reviewId": 2,
+      "userId": 2,
+      "itemId": 201,
+      "rating": 4,
+      "comment": "Great pizza, but a bit too cheesy for my taste."
+    },
+    {
+      "reviewId": 3,
+      "userId": 3,
+      "itemId": 301,
+      "rating": 5,
+      "comment": "The best spaghetti Bolognese I've ever had!"
+    },
+    {
+      "reviewId": 4,
+      "userId": 1,
+      "itemId": 502,
+      "rating": 3,
+      "comment": "Good ice cream, but I've had better."
+    }
+  ]
+}

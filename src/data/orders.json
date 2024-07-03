@@ -1,0 +1,46 @@
+{
+  "orders": [
+    {
+      "orderId": 1001,
+      "userId": 1,
+      "items": [
+        {
+          "itemId": 101,
+          "quantity": 2,
+          "price": 8.99
+        },
+        {
+          "itemId": 201,
+          "quantity": 1,
+          "price": 12.99
+        }
+      ],
+      "totalPrice": 30.97,
+      "orderDate": "2024-06-29T18:25:43.511Z",
+      "status": "Delivered",
+      "deliveryAddress": "123 Main St, Anytown, USA",
+      "paymentMethodId": 1
+    },
+    {
+      "orderId": 1002,
+      "userId": 2,
+      "items": [
+        {
+          "itemId": 302,
+          "quantity": 1,
+          "price": 13.99
+        },
+        {
+          "itemId": 503,
+          "quantity": 2,
+          "price": 4.99
+        }
+      ],
+      "totalPrice": 23.97,
+      "orderDate": "2024-06-28T17:30:00.000Z",
+      "status": "In Progress",
+      "deliveryAddress": "456 Elm St, Othertown, USA",
+      "paymentMethodId": 2
+    }
+  ]
+}

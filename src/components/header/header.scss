@@ -1,0 +1,38 @@
+.header {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/src/assets/headerImage.jpg");
+  margin: 0 2px;
+  padding: 0;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  .header-content {
+    position: absolute;
+    text-align: start;
+    max-width: 50%;
+    left: 22vw;
+    bottom: 30%;
+
+    h2 {
+      font-weight: 500;
+      color: #1eff00;
+    }
+    p {
+      font-size: 16px;
+      color: #fff;
+    }
+    .btn {
+      background-color: #fff2ff;
+      border-radius: 15px;
+      padding: auto 14px;
+      &:hover {
+        background: tomato;
+        color: #fff;
+      }
+    }
+  }
+}

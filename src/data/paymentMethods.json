@@ -1,0 +1,28 @@
+{
+  "paymentMethods": [
+    {
+      "paymentMethodId": 1,
+      "userId": 1,
+      "cardType": "Visa",
+      "cardNumber": "4111111111111111",
+      "expiryDate": "2025-05",
+      "billingAddress": "123 Main St, Anytown, USA"
+    },
+    {
+      "paymentMethodId": 2,
+      "userId": 2,
+      "cardType": "MasterCard",
+      "cardNumber": "5555555555554444",
+      "expiryDate": "2026-06",
+      "billingAddress": "456 Elm St, Othertown, USA"
+    },
+    {
+      "paymentMethodId": 3,
+      "userId": 3,
+      "cardType": "American Express",
+      "cardNumber": "378282246310005",
+      "expiryDate": "2027-07",
+      "billingAddress": "789 Oak St, Anothertown, USA"
+    }
+  ]
+}

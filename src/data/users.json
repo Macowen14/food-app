@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "passwordHash": "hashedpassword123",
+      "address": "123 Main St, Anytown, USA",
+      "phone": "555-1234"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "passwordHash": "hashedpassword456",
+      "address": "456 Elm St, Othertown, USA",
+      "phone": "555-5678"
+    },
+    {
+      "id": 3,
+      "name": "Sam Johnson",
+      "email": "sam.johnson@example.com",
+      "passwordHash": "hashedpassword789",
+      "address": "789 Oak St, Anothertown, USA",
+      "phone": "555-8765"
+    }
+  ]
+}
