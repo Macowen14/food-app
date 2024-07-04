@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./menu.scss";
-import Meals from "../../assets/assets.js";
 import { BsCart4 } from "react-icons/bs";
+import Meals from "../../data/Meals";
 
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+
   const handleCategory = (category) => {
     setSelectedCategory(category);
   };
