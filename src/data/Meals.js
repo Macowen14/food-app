@@ -11,7 +11,7 @@ const Meals = [
           "A delicious classic cheeseburger with lettuce, tomato, and cheese.",
         price: 8.99,
         available: true,
-        imageUrl: "/src/assets/classicCheeseburger.jpeg",
+        imageUrl: "/src/assets/mealsImg/classicCheeseburger.jpeg",
       },
       {
         id: 102,
@@ -20,7 +20,7 @@ const Meals = [
           "A juicy burger topped with crispy bacon, lettuce, and tomato.",
         price: 10.49,
         available: true,
-        imageUrl: "/src/assets/baconBurger.jpeg",
+        imageUrl: "/src/assets/mealsImg/baconBurger.jpeg",
       },
       {
         id: 103,
@@ -29,7 +29,7 @@ const Meals = [
           "A healthy veggie burger with lettuce, tomato, and cheese.",
         price: 7.99,
         available: true,
-        imageUrl: "/src/assets/veggieBurger.jpeg",
+        imageUrl: "/src/assets/mealsImg/veggieBurger.jpeg",
       },
       {
         id: 104,
@@ -37,7 +37,7 @@ const Meals = [
         description: "A burger topped with sautéed mushrooms and Swiss cheese.",
         price: 9.99,
         available: true,
-        imageUrl: "/src/assets/MushroomSwissBurger.jpeg",
+        imageUrl: "/src/assets/mealsImg/MushroomSwissBurger.jpeg",
       },
       {
         id: 105,
@@ -46,7 +46,7 @@ const Meals = [
           "A burger topped with BBQ sauce, bacon, and cheddar cheese.",
         price: 11.49,
         available: true,
-        imageUrl: "/src/assets/BBQBaconBurger.jpeg",
+        imageUrl: "/src/assets/mealsImg/BBQBaconBurger.jpeg",
       },
     ],
   },
@@ -62,7 +62,7 @@ const Meals = [
           "A classic Margherita pizza with fresh basil, mozzarella, and tomato sauce.",
         price: 12.99,
         available: true,
-        imageUrl: "/src/assets/MargheritaPizza.jpeg",
+        imageUrl: "/src/assets/mealsImg/MargheritaPizza.jpeg",
       },
       {
         id: 202,
@@ -71,7 +71,7 @@ const Meals = [
           "A delicious pizza topped with pepperoni, mozzarella, and tomato sauce.",
         price: 14.49,
         available: false,
-        imageUrl: "/src/assets/PepperoniPizza.jpeg",
+        imageUrl: "/src/assets/mealsImg/PepperoniPizza.jpeg",
       },
       {
         id: 203,
@@ -80,7 +80,7 @@ const Meals = [
           "A pizza topped with BBQ chicken, mozzarella, and red onions.",
         price: 15.99,
         available: true,
-        imageUrl: "/src/assets/BBQChickenPizza.jpeg",
+        imageUrl: "/src/assets/mealsImg/BBQChickenPizza.jpeg",
       },
       {
         id: 204,
@@ -89,7 +89,7 @@ const Meals = [
           "A pizza topped with ham, pineapple, and mozzarella cheese.",
         price: 13.99,
         available: true,
-        imageUrl: "/src/assets/HawaiianPizza.jpeg",
+        imageUrl: "/src/assets/mealsImg/HawaiianPizza.jpeg",
       },
       {
         id: 205,
@@ -98,7 +98,7 @@ const Meals = [
           "A pizza topped with bell peppers, onions, mushrooms, and olives.",
         price: 12.99,
         available: true,
-        imageUrl: "/src/assets/VeggiePizza.jpeg",
+        imageUrl: "/src/assets/mealsImg/VeggiePizza.jpeg",
       },
     ],
   },
@@ -113,7 +113,7 @@ const Meals = [
         description: "Classic spaghetti with a rich bolognese sauce.",
         price: 11.99,
         available: true,
-        imageUrl: "/src/assets/SpaghettiBolognese.jpeg",
+        imageUrl: "/src/assets/mealsImg/SpaghettiBolognese.jpeg",
       },
       {
         id: 302,
@@ -122,7 +122,7 @@ const Meals = [
           "Creamy Alfredo sauce with grilled chicken over fettuccine.",
         price: 13.99,
         available: true,
-        imageUrl: "/src/assets/ChickenAlfredo.jpeg",
+        imageUrl: "/src/assets/mealsImg/ChickenAlfredo.jpeg",
       },
       {
         id: 303,
@@ -130,7 +130,7 @@ const Meals = [
         description: "Layers of pasta, vegetables, and cheese.",
         price: 12.49,
         available: true,
-        imageUrl: "/src/assets/VegetableLasagna.jpeg",
+        imageUrl: "/src/assets/mealsImg/VegetableLasagna.jpeg",
       },
       {
         id: 304,
@@ -138,7 +138,7 @@ const Meals = [
         description: "Pasta with shrimp in a garlic butter sauce.",
         price: 14.99,
         available: true,
-        imageUrl: "/src/assets/ShrimpScampi.jpeg",
+        imageUrl: "/src/assets/mealsImg/ShrimpScampi.jpeg",
       },
       {
         id: 305,
@@ -146,7 +146,7 @@ const Meals = [
         description: "Penne pasta in a spicy tomato sauce.",
         price: 11.49,
         available: true,
-        imageUrl: "/src/assets/PenneArrabbiata.jpeg",
+        imageUrl: "/src/assets/mealsImg/PenneArrabbiata.jpeg",
       },
     ],
   },
@@ -162,7 +162,7 @@ const Meals = [
           "Romaine lettuce with Caesar dressing, croutons, and Parmesan cheese.",
         price: 8.49,
         available: true,
-        imageUrl: "/src/assets/CaesarSalad.jpeg",
+        imageUrl: "/src/assets/mealsImg/CaesarSalad.jpeg",
       },
       {
         id: 402,
@@ -171,7 +171,7 @@ const Meals = [
           "Mixed greens with olives, feta cheese, and Greek dressing.",
         price: 9.99,
         available: true,
-        imageUrl: "/src/assets/GreekSalad.jpeg",
+        imageUrl: "/src/assets/mealsImg/GreekSalad.jpeg",
       },
       {
         id: 403,
@@ -179,7 +179,7 @@ const Meals = [
         description: "Mixed greens with bacon, egg, avocado, and blue cheese.",
         price: 10.49,
         available: true,
-        imageUrl: "/src/assets/CobbSalad.jpeg",
+        imageUrl: "/src/assets/mealsImg/CobbSalad.jpeg",
       },
       {
         id: 404,
@@ -188,7 +188,7 @@ const Meals = [
           "Tomatoes, mozzarella, and basil drizzled with balsamic glaze.",
         price: 8.99,
         available: true,
-        imageUrl: "/src/assets/CapreseSalad.jpeg",
+        imageUrl: "/src/assets/mealsImg/CapreseSalad.jpeg",
       },
       {
         id: 405,
@@ -197,7 +197,7 @@ const Meals = [
           "Baby spinach with bacon, mushrooms, and a warm bacon dressing.",
         price: 9.49,
         available: true,
-        imageUrl: "/src/assets/SpinachSalad.jpeg",
+        imageUrl: "/src/assets/mealsImg/SpinachSalad.jpeg",
       },
     ],
   },
@@ -212,7 +212,7 @@ const Meals = [
         description: "A rich and moist chocolate cake.",
         price: 5.99,
         available: true,
-        imageUrl: "/src/assets/ChocolateCake.jpeg",
+        imageUrl: "/src/assets/mealsImg/ChocolateCake.jpeg",
       },
       {
         id: 502,
@@ -220,7 +220,7 @@ const Meals = [
         description: "A scoop of vanilla ice cream.",
         price: 3.49,
         available: true,
-        imageUrl: "/src/assets/IceCream.jpeg",
+        imageUrl: "/src/assets/mealsImg/IceCream.jpeg",
       },
       {
         id: 503,
@@ -228,7 +228,7 @@ const Meals = [
         description: "A slice of traditional apple pie.",
         price: 4.99,
         available: true,
-        imageUrl: "/src/assets/ApplePie.jpeg",
+        imageUrl: "/src/assets/mealsImg/ApplePie.jpeg",
       },
       {
         id: 504,
@@ -236,7 +236,7 @@ const Meals = [
         description: "A creamy cheesecake with a graham cracker crust.",
         price: 6.49,
         available: true,
-        imageUrl: "/src/assets/CheeseCake.jpeg",
+        imageUrl: "/src/assets/mealsImg/CheeseCake.jpeg",
       },
       {
         id: 505,
@@ -244,7 +244,7 @@ const Meals = [
         description: "A rich and fudgy chocolate brownie.",
         price: 3.99,
         available: true,
-        imageUrl: "/src/assets/Brownie.jpeg",
+        imageUrl: "/src/assets/mealsImg/Brownie.jpeg",
       },
     ],
   },

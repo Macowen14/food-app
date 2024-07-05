@@ -4,11 +4,13 @@
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   padding: 0;
+
   .navbar-brand {
-    font-size: 29px;
+    font-size: 28px;
     margin-left: 23px;
     color: orangered;
-    font-family: "Poetsen One", sans-serif;
+    font-weight: 600;
+    font-family: "Poetsen One", sans-serif !important;
     text-decoration: none;
     &:hover {
       color: orange;
@@ -64,16 +66,23 @@
         color: #007bff;
       }
     }
+
     .basket-icon {
       position: relative;
       .basket-items {
         font-size: 14px;
         position: absolute;
+        text-align: center;
         top: 0;
-        right: -3px;
-        color: tomato;
+        right: -15px;
+        color: #fff;
+        background: tomato;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
       }
     }
+
     .btn {
       padding: 6px 19px;
       font-size: 14px;
@@ -87,6 +96,69 @@
       &:hover {
         background-color: #fa745c;
         border: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .navbar {
+    align-items: center;
+    padding: 10px;
+
+    .navbar-brand {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .navbar-nav {
+      gap: 15px;
+
+      .nav-item {
+        .nav-link {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .navbar-right {
+      gap: 15px;
+      .search-icon,
+      .basket-icon {
+        font-size: 20px;
+      }
+      .btn {
+        font-size: 14px;
+        padding: 10px 19px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    .navbar-brand {
+      font-size: 20px;
+    }
+    .navbar-nav {
+      gap: 10px;
+
+      .nav-item {
+        .nav-link {
+          font-size: 16px;
+        }
+      }
+    }
+    .navbar-right {
+      gap: 10px;
+
+      .search-icon,
+      .basket-icon {
+        font-size: 18px;
+      }
+      .btn {
+        font-size: 14px;
+        padding: 8px 16px;
       }
     }
   }

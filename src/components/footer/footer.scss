@@ -1,0 +1,105 @@
+.footer {
+  color: #d9d9d9;
+  background-color: #323232;
+  display: flex column;
+  gap: 20px;
+  padding: 20px 8vw;
+  padding-top: 50px;
+  align-items: center;
+  font-family: "Noto Serif", sans-serif;
+  margin-top: 100px;
+  margin-bottom: 0;
+  position: sticky;
+
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr;
+    display: grid;
+    gap: 80px;
+
+    .footer-left,
+    .footer-right,
+    .footer-center {
+      display: flex column;
+      align-items: start;
+      gap: 20px;
+    }
+    .footer-left {
+      font-family: "Noto Sans", sans-serif;
+      .logo {
+        font-size: 35px;
+        color: orangered;
+        font-weight: 600;
+        font-family: "Poetsen One", sans-serif !important;
+        text-decoration: none;
+        &:hover {
+          color: orange;
+        }
+        .icons {
+          display: flex !important;
+          justify-content: space-around !important;
+          align-items: center !important;
+        }
+      }
+    }
+    .footer-center li,
+    .footer-right li {
+      margin-bottom: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      &:hover {
+        color: orangered;
+        text-decoration: underline;
+      }
+    }
+    h3 {
+      color: white;
+    }
+  }
+  hr {
+    width: 100%;
+  }
+  .footer-copyright {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    .footer-content {
+      display: flex;
+      flex-direction: column !important;
+      gap: 30px;
+      .footer-left {
+        width: 100% !important;
+      }
+      .footer-center {
+        position: relative;
+      }
+      .footer-right {
+        position: absolute;
+        bottom: 28%;
+        right: 10%;
+      }
+    }
+  }
+}
+@media (max-width: 1050px) {
+  .footer {
+    .footer-content {
+      display: flex;
+      flex-direction: column !important;
+      gap: 30px;
+      .footer-left {
+        width: 100% !important;
+      }
+      .footer-center {
+        position: relative;
+      }
+      .footer-right {
+        position: absolute;
+        bottom: 28%;
+        right: 10%;
+      }
+    }
+  }
+}
