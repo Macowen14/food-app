@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "react-use-cart";
-import { info } from "sass";
+import "./cart.scss";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const {
@@ -14,80 +15,105 @@ function Cart() {
     emptyCart,
   } = useCart();
 
+  const navigate = useNavigate();
+  const handleNavigation = (path, hash) => {
+    navigate(path); // Navigate to the home page
+    setTimeout(() => {
+      const element = document.getElementById(hash); // Scroll to the desired section
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Delay to ensure the navigation occurs before scrolling
+  };
+
   if (isEmpty)
     return (
-      <>
+      <div className="empty-cart container">
         <h1 className="text-center">Your Cart is empty.</h1>
-
-        <a className="btn btn-info" href="/menu">
+        <button
+          className="btn btn-info"
+          onClick={() => handleNavigation("/", "menu")}
+        >
           Order Now
-        </a>
-      </>
+        </button>
+      </div>
     );
+
   return (
-    <>
-      <section className="cart container py-4">
-        <div className="main">
-          <h3>View Cart</h3>
-          <h6>
-            Cart :({totalUniqueItems}) total items: ({totalItems})
-          </h6>
-          <table className="table table-striped table-hover">
-            <tbody>
-              {items.map((item, index) => (
-                <tr key={index}>
-                  <td>
-                    <img
-                      src={item.imageUrl}
-                      alt={item.name}
-                      style={{ height: "6rem", width: "auto" }}
-                    />
-                  </td>
-                  <td>
-                    {item.name}
-                    <p>{item.description}</p>
-                  </td>
-                  <td>{item.price}</td>
-                  <td>Quantity ({item.quantity})</td>
-                  <td>
-                    <button
-                      className="btn btn-warning me-2"
-                      onClick={() => {
-                        updateItemQuantity(item.id, item.quantity - 1);
-                      }}
-                    >
-                      -
-                    </button>
-                    <button
-                      className="btn btn-success me-2"
-                      onClick={() => {
-                        updateItemQuantity(item.id, item.quantity + 1);
-                      }}
-                    >
-                      +
-                    </button>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => removeItem(item.id)}
-                    >
-                      Remove Item
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div className="col-auto ms-auto">
-            <h2>Total Price: ${cartTotal}</h2>
+    <section className="cart py-4">
+      <div className="main">
+        <h3 className="text-center text-decoration-underline">View Cart</h3>
+        <h6>
+          Cart: ({totalUniqueItems}) total items: ({totalItems})
+        </h6>
+        {items.map((item, index) => (
+          <div key={index} className="cart-item">
+            <img src={item.imageUrl} alt={item.name} className="item-image" />
+            <div className="item-details">
+              <h5>{item.name}</h5>
+              <p>{item.description}</p>
+              <strong>
+                ${item.price.toFixed(2)} <p>Quantity: {item.quantity}</p>
+              </strong>
+            </div>
+            <div className="item-actions">
+              <button
+                className="btn btn-warning"
+                onClick={() => {
+                  updateItemQuantity(item.id, item.quantity - 1);
+                }}
+              >
+                -
+              </button>
+              <button
+                className="btn btn-success"
+                onClick={() => {
+                  updateItemQuantity(item.id, item.quantity + 1);
+                }}
+              >
+                +
+              </button>
+              <button
+                className="btn btn-danger"
+                onClick={() => removeItem(item.id)}
+              >
+                Remove Item
+              </button>
+            </div>
           </div>
-          <div className="col-auto">
-            <button className="btn btn-danger m-2" onClick={() => emptyCart()}>
-              Clear Cart
-            </button>
-          </div>
+        ))}
+
+        <div className="total-price col-auto ms-auto">
+          <h2>Total Price: ${cartTotal.toFixed(2)}</h2>
         </div>
-      </section>
-    </>
+        <div className="action-buttons col-auto">
+          <button className="btn btn-danger m-2" onClick={() => emptyCart()}>
+            Clear Cart
+          </button>
+          <button
+            className="btn pay-btn btn-success ms-auto"
+            onClick={() => handleNavigation("/order", "payOrder")}
+          >
+            Proceed to Pay
+          </button>
+        </div>
+        <div className="promos container mt-3">
+          <i>If you have promo code or voucher card enter it here</i>
+          <form action="#" method="post">
+            <input
+              type="text"
+              className="form-control"
+              name="promo"
+              id="promo"
+              placeholder="Enter voucher or promo code"
+            />
+            <button type="submit" className="btn btn-dark mt-3">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 }
 

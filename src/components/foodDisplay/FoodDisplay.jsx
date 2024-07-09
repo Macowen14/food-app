@@ -21,7 +21,11 @@ function FoodDisplay() {
     <>
       <div className="menu-nav row justify-content-center mb-4">
         <button
-          className={selectedCategory === "All" ? "active btn col" : "btn col"}
+          className={
+            selectedCategory === "All"
+              ? "active btn  menu-all "
+              : "btn  menu-all"
+          }
           onClick={() => {
             handleCategory("All");
           }}
@@ -32,8 +36,8 @@ function FoodDisplay() {
           <div
             className={
               selectedCategory === category
-                ? "menu-item-active col"
-                : "menu-item col"
+                ? "menu-item-active col "
+                : "menu-item col "
             }
             key={index}
             onClick={() => {
@@ -49,7 +53,7 @@ function FoodDisplay() {
         {filteredMeals.map((meal) => (
           <div
             key={meal.id}
-            className="food-item col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+            className="food-item col-6 col-sm-6 col-md-4 col-lg-3 mb-4"
           >
             <h5>
               <i>{meal.name}</i>
@@ -63,7 +67,9 @@ function FoodDisplay() {
             <div className="price-order d-flex align-items-center">
               <span className="price">{meal.price} $</span>
               <button
-                className="btn ms-auto"
+                className={
+                  meal.available ? "btn ms-auto" : "btn ms-auto disabled"
+                }
                 onClick={() => {
                   addItem(meal);
                 }}

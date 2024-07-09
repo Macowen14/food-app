@@ -3,7 +3,12 @@ import "./header.scss";
 
 const Header = () => {
   return (
-    <header className="header" data-aos="fade-up" data-aos-duration="1000">
+    <header
+      className="header"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      id="header"
+    >
       <div className="header-content">
         <h2>Order your favourite food here</h2>
         <p>

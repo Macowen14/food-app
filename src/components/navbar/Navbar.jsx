@@ -3,13 +3,15 @@ import "./navbar.scss";
 import { FiSearch, FiMenu } from "react-icons/fi";
 import { FaShoppingBasket } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useCart } from "react-use-cart";
 import { FaX } from "react-icons/fa6";
+import { useCart } from "react-use-cart";
 
-const Navbar = () => {
-  const { totalItems } = useCart();
+const Navbar = ({ setLogin }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { totalItems } = useCart();
+
+  const cartItems = totalItems;
 
   const handleNavigation = (path, hash) => {
     navigate(path); // Navigate to the home page
@@ -47,6 +49,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive ? "nav-link active" : "nav-link"
                 }
+                onClick={() => handleNavigation("/", "header")}
               >
                 Home
               </NavLink>
@@ -91,10 +94,17 @@ const Navbar = () => {
             <NavLink to="/cart">
               <span className="basket-icon">
                 <FaShoppingBasket />
-                <span className="basket-items">{totalItems}</span>
+                <span className="basket-items">{cartItems}</span>
               </span>
             </NavLink>
-            <button className="btn">Sign in</button>
+            <button
+              className="btn"
+              onClick={() => {
+                setLogin(true);
+              }}
+            >
+              Sign in
+            </button>
           </div>
         </div>
       </div>
