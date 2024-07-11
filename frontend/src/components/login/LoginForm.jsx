@@ -40,7 +40,12 @@ function LoginForm({ setLogin }) {
   return (
     <>
       <div className="form-container">
-        <form method="post" className="form" onSubmit={handleSubmit}>
+        <form
+          method="post"
+          className="form"
+          action={(currState = "Sign up" ? "/api/signup" : "/api/login")}
+          onSubmit={handleSubmit}
+        >
           <div className="form-title">
             <h2>{currState}</h2>
             <span className="cancel-icon" onClick={() => setLogin(false)}>
