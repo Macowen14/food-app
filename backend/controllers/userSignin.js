@@ -1,8 +1,10 @@
 const db = require("../db");
 const bcrypt = require("bcrypt");
+const express = require("express");
+const router = express.Router();
 
 // Handle signup
-app.post("/api/signup", async (req, res) => {
+router.post("/", async (req, res) => {
   const { username, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -17,3 +19,5 @@ app.post("/api/signup", async (req, res) => {
     }
   );
 });
+
+module.exports = router;

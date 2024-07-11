@@ -2,10 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-const bcrypt = require("bcrypt");
+const signupRoute = require("./controllers/userSignin");
+const loginRoute = require("./controllers/userLogin");
 const db = require("./db");
 
 const app = express();
+
+// Middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
@@ -17,42 +20,30 @@ app.use(
   })
 );
 
-// Create tables if they don't exist
-db.query(`
-  CREATE TABLE IF NOT EXISTS users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(150) NOT NULL,
-    email VARCHAR(150) NOT NULL UNIQUE,
-    phone VARCHAR(15) NOT NULL,
-    password VARCHAR(255) NOT NULL
-  )
-`);
+// Routes
+app.use("/api/signup", signupRoute);
+app.use("/api/login", loginRoute);
 
-// Handle login
-app.post("/api/login", (req, res) => {
-  const { email, password } = req.body;
-
-  db.query(
-    "SELECT * FROM users WHERE email = ?",
-    [email],
-    async (err, results) => {
-      if (err) {
-        return res.status(500).send(err);
-      }
-      if (
-        results.length === 0 ||
-        !(await bcrypt.compare(password, results[0].password))
-      ) {
-        return res.status(400).send({ message: "Invalid email or password" });
-      }
-
-      req.session.user = results[0];
-      res.status(200).send({ message: "Login successful" });
-    }
-  );
-});
-
-// Start the server
-app.listen(5000, () => {
-  console.log("Server is running on port 5000");
-});
+const createTables = async () => {
+  try {
+    const connection = await db.getConnection();
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(150) NOT NULL,
+        email VARCHAR(150) NOT NULL UNIQUE,
+        phone VARCHAR(15) NOT NULL,
+        password VARCHAR(255) NOT NULL
+      )
+    `);
+    console.log("User table created successfully");
+    connection.release();
+    // Start the server
+    app.listen(5000, () => {
+      console.log("Server is running on port 5000");
+    });
+  } catch (err) {
+    console.error("Error creating user table:", err);
+  }
+};
+createTables();
