@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./loginForm.scss";
-import { FaX } from "react-icons/fa6";
+import { FaTimes as FaX } from "react-icons/fa"; // Corrected import for FaX
 import SignUp from "../signup/SignUp";
 import { useFormik } from "formik";
+import axios from "axios";
 import { signUpValidationSchema } from "../signup/signUpValidation";
 import { loginValidationSchema } from "./loginValidation";
 
@@ -29,8 +30,18 @@ function LoginForm({ setLogin }) {
     initialValues: initialValues,
     validationSchema:
       currState === "Sign up" ? signUpValidationSchema : loginValidationSchema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        const url = currState === "Sign up" ? "/api/signup" : "/api/login";
+        const response = await axios.post(url, values);
+        console.log(response.data); // Log the response data from the server
+        alert(response.data.message); // Show appropriate message to user
+      } catch (error) {
+        console.error("Error occurred:", error.message); // Handle error
+        alert("An error occurred. Please try again."); // Show generic error message
+      } finally {
+        setSubmitting(false); // Ensure form is not stuck in submitting state
+      }
     },
   });
 
@@ -40,12 +51,7 @@ function LoginForm({ setLogin }) {
   return (
     <>
       <div className="form-container">
-        <form
-          method="post"
-          className="form"
-          action={(currState = "Sign up" ? "/api/signup" : "/api/login")}
-          onSubmit={handleSubmit}
-        >
+        <form method="post" className="form" onSubmit={handleSubmit}>
           <div className="form-title">
             <h2>{currState}</h2>
             <span className="cancel-icon" onClick={() => setLogin(false)}>
@@ -70,7 +76,7 @@ function LoginForm({ setLogin }) {
                   placeholder="Your email"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.email}
+                  value={values.email || ""}
                 />
                 {errors.email && touched.email ? (
                   <span className="text-danger">{errors.email}</span>
@@ -82,7 +88,7 @@ function LoginForm({ setLogin }) {
                   placeholder="Enter your password"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.password}
+                  value={values.password || ""}
                 />
                 {errors.password && touched.password ? (
                   <span className="text-danger">{errors.password}</span>

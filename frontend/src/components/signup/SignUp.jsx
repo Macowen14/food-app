@@ -11,7 +11,7 @@ const SignUp = ({ handleBlur, handleChange, values, errors, touched }) => {
         placeholder="Your name"
         onBlur={handleBlur}
         onChange={handleChange}
-        value={values.name}
+        value={values.name || ""}
       />
 
       {errors.name && touched.name ? (
@@ -26,7 +26,7 @@ const SignUp = ({ handleBlur, handleChange, values, errors, touched }) => {
         placeholder="Your phone number"
         onBlur={handleBlur}
         onChange={handleChange}
-        value={values.phone}
+        value={values.phone || ""}
       />
 
       {errors.phone && touched.phone ? (
@@ -41,7 +41,7 @@ const SignUp = ({ handleBlur, handleChange, values, errors, touched }) => {
         placeholder="Your email"
         onBlur={handleBlur}
         onChange={handleChange}
-        value={values.email}
+        value={values.email || ""}
       />
 
       {errors.email && touched.email ? (
@@ -56,7 +56,7 @@ const SignUp = ({ handleBlur, handleChange, values, errors, touched }) => {
         placeholder="Your Password"
         onBlur={handleBlur}
         onChange={handleChange}
-        value={values.password}
+        value={values.password || ""}
       />
 
       {errors.password && touched.password ? (
@@ -66,12 +66,12 @@ const SignUp = ({ handleBlur, handleChange, values, errors, touched }) => {
       <input
         type="password"
         name="confirmPassword"
-        id="password"
+        id="confirmPassword"
         className="form-control"
         placeholder="Confirm your Password"
         onBlur={handleBlur}
         onChange={handleChange}
-        value={values.confirmPassword}
+        value={values.confirmPassword || ""}
       />
 
       {errors.confirmPassword && touched.confirmPassword ? (
