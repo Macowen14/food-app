@@ -1,21 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./foodDisplay.scss";
 import { BsCart4 } from "react-icons/bs";
-import Meals from "../../data/Meals";
+import { fetchMealsData } from "../../data/Meals";
 import { useCart } from "react-use-cart";
 
 function FoodDisplay() {
+  console.log("Render FoodDisplay");
+
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const { addItem } = useCart();
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const mealsData = await fetchMealsData();
+        setData(mealsData);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    getData();
+  }, []);
 
   const handleCategory = (category) => {
     setSelectedCategory(category);
   };
-  const { addItem } = useCart();
+
   const filteredMeals =
     selectedCategory === "All"
-      ? Meals.flatMap((category) => category.items)
-      : Meals.find((category) => category.name === selectedCategory)?.items ||
+      ? data.flatMap((category) => category.items)
+      : data.find((category) => category.name === selectedCategory)?.items ||
         [];
+
+  if (loading) return <p className="text-info">Loading...</p>;
+  if (error) return <p className="text-center text-danger">Error: {error}</p>;
 
   return (
     <>
@@ -32,10 +56,10 @@ function FoodDisplay() {
         >
           All
         </button>
-        {Meals.map((category, index) => (
+        {data.map((category, index) => (
           <div
             className={
-              selectedCategory === category
+              selectedCategory === category.name
                 ? "menu-item-active col "
                 : "menu-item col "
             }

@@ -53,7 +53,8 @@ function Cart() {
               <h5>{item.name}</h5>
               <p>{item.description}</p>
               <strong>
-                ${item.price.toFixed(2)} <p>Quantity: {item.quantity}</p>
+                ${Number(item.price).toFixed(2)}{" "}
+                <p>Quantity: {item.quantity}</p>
               </strong>
             </div>
             <div className="item-actions">

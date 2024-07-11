@@ -4,11 +4,14 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const signupRoute = require("./controllers/userSignin");
 const loginRoute = require("./controllers/userLogin");
+const mealsRoute = require("./controllers/meals");
 const db = require("./db");
+const cors = require("cors");
 
 const app = express();
 
 // Middleware
+app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
@@ -23,6 +26,7 @@ app.use(
 // Routes
 app.use("/api/signup", signupRoute);
 app.use("/api/login", loginRoute);
+app.use("/api/meals", mealsRoute);
 
 const createTables = async () => {
   try {
