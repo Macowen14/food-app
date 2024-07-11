@@ -1,0 +1,95 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .form-container {
+    padding: 10px;
+  }
+}
+
+.form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  width: max(23vw, 390px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 45px;
+}
+@media (max-width: 768px) {
+  .form {
+    width: 100%;
+    padding: 20px;
+  }
+}
+.form .form-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.form .form-title h2 {
+  margin: 0;
+  color: #333;
+}
+.form .form-title .cancel-icon {
+  cursor: pointer;
+  color: #333;
+}
+.form .login-input {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.form .login-input input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+.form .login-input .form-condition {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.form .login-input .form-condition input[type=checkbox] {
+  margin: 0;
+}
+.form .login-input .form-condition p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+.form .login-input .btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.form .login-input p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+.form .login-input p .span-btn {
+  color: #007bff;
+  background: none;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+.form .login-input p .span-btn:hover {
+  text-decoration: underline;
+  background: none !important;
+}/*# sourceMappingURL=loginForm.css.map */

@@ -1,0 +1,87 @@
+.order {
+  margin: 25px !important;
+  margin-left: 65px !important;
+  padding-top: 20px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  width: 90%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.order h3 {
+  font-family: "Noto Serif", sans-serif;
+}
+.order .fields {
+  padding: 10px 13px !important;
+}
+.order .fields .order-left {
+  margin-bottom: 15px;
+}
+.order .fields .order-left .input-group {
+  gap: 15px;
+  width: 90%;
+  margin: auto 15px;
+  padding-left: 13px;
+}
+.order .fields .order-left .form-control {
+  margin-bottom: 10px;
+}
+.order .fields .order-left .text-danger {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.order .fields .order-left .checkbox-group .checkbox {
+  margin: auto 10px;
+}
+.order .form-control {
+  width: 90%;
+  margin: 15px auto;
+}
+.order .order-right {
+  font-family: "Noto Serif", sans-serif;
+}
+.order .order-right h2 {
+  margin-bottom: 10px;
+}
+.order .order-right h2 p {
+  font-weight: 400;
+  font-size: 14px;
+}
+.order .order-right .form-control {
+  width: 90%;
+  margin-left: 0;
+}
+.order .order-right .btn {
+  width: 150px;
+  margin: auto 60px;
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+}
+.order .order-right .btn-cancel {
+  background-color: tomato;
+}
+
+@media (max-width: 768px) {
+  .order {
+    margin: auto !important;
+    padding-bottom: 20px;
+    padding: 5px;
+  }
+  .order h3 {
+    padding: 4px;
+  }
+  .order .fields {
+    padding: 0px !important;
+  }
+  .order .fields .order-left .input-group {
+    gap: 5px;
+  }
+  .order .order-right {
+    margin-left: 40px;
+  }
+  .order .order-right .btn-cancel {
+    width: 180px !important;
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=order.css.map */

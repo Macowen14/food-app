@@ -1,0 +1,101 @@
+.menu-nav {
+  gap: 10px;
+}
+.menu-nav .menu-all {
+  height: 50px;
+  width: 70px !important;
+  background-color: #f5f5f5 !important;
+  border-radius: 12px;
+  font-family: "Noto Sans", sans-serif;
+}
+.menu-nav .menu-item {
+  cursor: pointer;
+  border: none;
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 16px;
+  text-align: center;
+}
+.menu-nav .menu-item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.menu-nav .menu-item p {
+  margin-top: 0.5rem;
+}
+.menu-nav .active {
+  border: 1px solid orange;
+}
+.menu-nav .menu-item-active {
+  border: 1px solid orange;
+  cursor: pointer;
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 16px;
+  text-align: center;
+}
+.menu-nav .menu-item-active img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.menu-nav .menu-item-active p {
+  margin-top: 0.5rem;
+}
+.menu-nav .btn {
+  background: #ebd2e9;
+  width: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 13px;
+}
+
+.menu-list .food-item {
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.menu-list .food-item h5 {
+  margin-bottom: 1rem;
+}
+.menu-list .food-item .food-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+.menu-list .food-item .price-order {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.menu-list .food-item .price-order .price {
+  font-size: 17px;
+  font-weight: bold;
+}
+.menu-list .food-item .price-order .btn {
+  font-size: 16px;
+  background: lightseagreen;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 500;
+  margin-left: auto;
+}
+.menu-list .food-item .available {
+  background: lightgreen;
+  padding: 0.5rem;
+  border-radius: 21px;
+  width: 100px;
+  margin: 10px auto;
+  text-align: center;
+}
+.menu-list .food-item .unavailable {
+  background: lightsalmon;
+  padding: 0.5rem;
+  border-radius: 21px;
+  width: 110px;
+  margin: 10px auto;
+  text-align: center;
+}/*# sourceMappingURL=foodDisplay.css.map */

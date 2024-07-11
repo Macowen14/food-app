@@ -1,0 +1,142 @@
+/* navbar.scss */
+.navbar {
+  font-family: "Source Sans", sans-serif;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 0;
+}
+.navbar .navbar-brand {
+  font-size: 28px;
+  margin-left: 23px;
+  color: orangered;
+  font-weight: 600;
+  font-family: "Poetsen One", sans-serif !important;
+  text-decoration: none;
+}
+.navbar .navbar-brand:hover {
+  color: orange;
+}
+.navbar .navbar-nav {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.navbar .navbar-nav .nav-item {
+  margin: auto 10px;
+  padding: auto 12px;
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  font-family: "Robot", sans-serif;
+  font-size: 16px;
+  color: #555;
+  text-decoration: none;
+  padding: auto 10px;
+  border-radius: 4px;
+}
+.navbar .navbar-nav .nav-item .nav-link.active {
+  padding-bottom: 2px;
+  border-bottom: 2px solid #49557e;
+}
+.navbar .navbar-nav .nav-item .nav-link.active:hover {
+  background-color: #fff4f2;
+}
+.navbar .navbar-nav .nav-item .nav-link:hover {
+  background-color: #f0f0f0;
+}
+.navbar .navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navbar .navbar-right .search-icon,
+.navbar .navbar-right .basket-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+  margin: auto 13px;
+}
+.navbar .navbar-right .search-icon:hover,
+.navbar .navbar-right .basket-icon:hover {
+  color: #007bff;
+}
+.navbar .navbar-right .basket-icon {
+  position: relative;
+}
+.navbar .navbar-right .basket-icon .basket-items {
+  font-size: 14px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  right: -15px;
+  color: #fff;
+  background: tomato;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.navbar .navbar-right .btn {
+  padding: 6px 19px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: none;
+  border: 1px solid #000;
+  border-radius: 17px;
+  cursor: pointer;
+}
+.navbar .navbar-right .btn:hover {
+  background-color: #fa745c;
+  border: none;
+}
+
+@media (max-width: 1050px) {
+  .navbar {
+    align-items: center;
+    padding: 10px;
+  }
+  .navbar .navbar-brand {
+    font-size: 22px;
+    margin: 0;
+  }
+  .navbar .navbar-nav {
+    gap: 15px;
+  }
+  .navbar .navbar-nav .nav-item .nav-link {
+    font-size: 15px;
+  }
+  .navbar .navbar-right {
+    gap: 15px;
+  }
+  .navbar .navbar-right .search-icon,
+  .navbar .navbar-right .basket-icon {
+    font-size: 20px;
+  }
+  .navbar .navbar-right .btn {
+    font-size: 14px;
+    padding: 10px 19px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar .navbar-brand {
+    font-size: 20px;
+  }
+  .navbar .navbar-nav {
+    gap: 10px;
+  }
+  .navbar .navbar-nav .nav-item .nav-link {
+    font-size: 16px;
+  }
+  .navbar .navbar-right {
+    gap: 10px;
+  }
+  .navbar .navbar-right .search-icon,
+  .navbar .navbar-right .basket-icon {
+    font-size: 18px;
+  }
+  .navbar .navbar-right .btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}/*# sourceMappingURL=navbar.css.map */

@@ -1,0 +1,100 @@
+.footer {
+  color: #d9d9d9;
+  background-color: #323232;
+  display: flex column;
+  gap: 20px;
+  padding: 20px 8vw;
+  padding-top: 50px;
+  align-items: center;
+  font-family: "Noto Serif", sans-serif;
+  margin-top: 100px;
+  margin-bottom: 0;
+  position: sticky;
+}
+.footer .footer-content {
+  grid-template-columns: 2fr 1fr 1fr;
+  display: grid;
+  gap: 80px;
+}
+.footer .footer-content .footer-left,
+.footer .footer-content .footer-right,
+.footer .footer-content .footer-center {
+  display: flex column;
+  align-items: start;
+  gap: 20px;
+}
+.footer .footer-content .footer-left {
+  font-family: "Noto Sans", sans-serif;
+}
+.footer .footer-content .footer-left .logo {
+  font-size: 35px;
+  color: orangered;
+  font-weight: 600;
+  font-family: "Poetsen One", sans-serif !important;
+  text-decoration: none;
+}
+.footer .footer-content .footer-left .logo:hover {
+  color: orange;
+}
+.footer .footer-content .footer-left .logo .icons {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+}
+.footer .footer-content .footer-center li,
+.footer .footer-content .footer-right li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.footer .footer-content .footer-center li:hover,
+.footer .footer-content .footer-right li:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+.footer .footer-content h3 {
+  color: white;
+}
+.footer hr {
+  width: 100%;
+}
+.footer .footer-copyright {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .footer .footer-content {
+    display: flex;
+    flex-direction: column !important;
+    gap: 30px;
+  }
+  .footer .footer-content .footer-left {
+    width: 100% !important;
+  }
+  .footer .footer-content .footer-center {
+    position: relative;
+  }
+  .footer .footer-content .footer-right {
+    position: absolute;
+    bottom: 28%;
+    right: 10%;
+  }
+}
+@media (max-width: 1050px) {
+  .footer .footer-content {
+    display: flex;
+    flex-direction: column !important;
+    gap: 30px;
+  }
+  .footer .footer-content .footer-left {
+    width: 100% !important;
+  }
+  .footer .footer-content .footer-center {
+    position: relative;
+  }
+  .footer .footer-content .footer-right {
+    position: absolute;
+    bottom: 28%;
+    right: 10%;
+  }
+}/*# sourceMappingURL=footer.css.map */
