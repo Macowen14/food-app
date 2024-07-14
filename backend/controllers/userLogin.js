@@ -4,10 +4,11 @@ const express = require("express");
 const router = express.Router();
 
 // Handle login
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const { email, password } = req.body;
+  const connection = await db.getConnection();
 
-  db.query(
+  connection.query(
     "SELECT * FROM users WHERE email = ?",
     [email],
     async (err, results) => {
@@ -22,9 +23,12 @@ router.post("/", (req, res) => {
       }
 
       req.session.user = results[0];
+      console.log(res.session);
+      console.log(res.sessionId);
       res.status(200).send({ message: "Login successful" });
     }
   );
+  connection.release();
 });
 
 module.exports = router;

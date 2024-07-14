@@ -16,14 +16,15 @@ function Cart() {
   } = useCart();
 
   const navigate = useNavigate();
+
   const handleNavigation = (path, hash) => {
-    navigate(path); // Navigate to the home page
+    navigate(path);
     setTimeout(() => {
-      const element = document.getElementById(hash); // Scroll to the desired section
+      const element = document.getElementById(hash);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 100); // Delay to ensure the navigation occurs before scrolling
+    }, 100);
   };
 
   if (isEmpty)

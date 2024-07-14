@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import "./navbar.scss";
 import { FiSearch, FiMenu } from "react-icons/fi";
-import { FaShoppingBasket } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaX } from "react-icons/fa6";
-import { useCart } from "react-use-cart";
+import Basket from "./Basket";
 
 const Navbar = ({ setLogin }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { totalItems } = useCart();
-
-  const cartItems = totalItems;
 
   const handleNavigation = (path, hash) => {
     navigate(path); // Navigate to the home page
@@ -91,12 +87,7 @@ const Navbar = ({ setLogin }) => {
             <span className="search-icon">
               <FiSearch />
             </span>
-            <NavLink to="/cart">
-              <span className="basket-icon">
-                <FaShoppingBasket />
-                <span className="basket-items">{cartItems}</span>
-              </span>
-            </NavLink>
+            <Basket />
             <button
               className="btn"
               onClick={() => {

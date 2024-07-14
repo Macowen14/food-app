@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { lazy, Suspense, useState, useEffect } from "react";
 import "./App.scss";
-import Navbar from "./components/navbar/Navbar";
-import Home from "./pages/home/Home";
-import CartPage from "./pages/cart/CartPage";
 import { Routes, Route } from "react-router-dom";
 import { CartProvider } from "react-use-cart";
-import LoginForm from "./components/login/LoginForm";
-import Order from "./pages/order/Order";
+import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/home/Home";
 
-import Footer from "./components/footer/Footer";
+// Lazy load components with preloading
+const Footer = lazy(() => import("./components/footer/Footer"));
+const CartPage = lazy(() => import("./pages/cart/CartPage"));
+const LoginForm = lazy(() => import("./components/login/LoginForm"));
+const Order = lazy(() => import("./pages/order/Order"));
+const Contact = lazy(() => import("./pages/contactPage/Contact"));
 
 const App = () => {
   const [login, setLogin] = useState(false);
@@ -17,18 +19,44 @@ const App = () => {
     <div className="app">
       <CartProvider>
         {login ? (
-          <LoginForm setLogin={setLogin} />
+          <Suspense fallback={<div>Loading login form...</div>}>
+            <LoginForm setLogin={setLogin} />
+          </Suspense>
         ) : (
           <>
             <Navbar login={login} setLogin={setLogin} />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/order" element={<Order />} />
+              <Route
+                path="/cart"
+                element={
+                  <Suspense fallback={<div>Loading cart...</div>}>
+                    <CartPage />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/order"
+                element={
+                  <Suspense fallback={<div>Loading order...</div>}>
+                    <Order />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <Suspense fallback={<div>Loading contact page ....</div>}>
+                    <Contact />
+                  </Suspense>
+                }
+              />
             </Routes>
           </>
         )}
-        <Footer />
+        <Suspense fallback={<div>Loading footer...</div>}>
+          <Footer />
+        </Suspense>
       </CartProvider>
     </div>
   );

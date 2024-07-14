@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback } from "react";
 import "./loginForm.scss";
-import { FaTimes as FaX } from "react-icons/fa"; // Corrected import for FaX
+import { FaTimes as FaX } from "react-icons/fa";
 import SignUp from "../signup/SignUp";
 import { useFormik } from "formik";
 import axios from "axios";
