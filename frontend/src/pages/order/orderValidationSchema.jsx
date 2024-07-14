@@ -13,7 +13,7 @@ const orderValidationSchema = Yup.object({
   phone: Yup.string().required("Phone number is required"),
   city: Yup.string().required("City is required"),
   address: Yup.string().required("Address is required"),
-  payment: Yup.string().required("Payment method is required"),
+  payment: Yup.string().max(16).required("Payment method is required"),
   card: Yup.string().required("Card number or Mpesa number is required"),
 });
 

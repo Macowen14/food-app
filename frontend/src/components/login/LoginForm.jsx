@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import "./loginForm.scss";
 import { FaTimes as FaX } from "react-icons/fa"; // Corrected import for FaX
 import SignUp from "../signup/SignUp";
@@ -9,38 +9,45 @@ import { loginValidationSchema } from "./loginValidation";
 
 function LoginForm({ setLogin }) {
   const [currState, setCurrState] = useState("Login");
+  const [message, setMessage] = useState(null); // State to store messages
 
-  const initialValues =
-    currState === "Sign up"
-      ? {
-          name: "",
-          email: "",
-          phone: "",
-          password: "",
-          confirmPassword: "",
-          terms: false,
-        }
-      : {
-          email: "",
-          password: "",
-          terms: false,
-        };
+  const initialValues = useMemo(
+    () =>
+      currState === "Sign up"
+        ? {
+            name: "",
+            email: "",
+            phone: "",
+            password: "",
+            confirmPassword: "",
+            terms: false,
+          }
+        : {
+            email: "",
+            password: "",
+            terms: false,
+          },
+    [currState]
+  );
+
+  const validationSchema = useMemo(
+    () =>
+      currState === "Sign up" ? signUpValidationSchema : loginValidationSchema,
+    [currState]
+  );
 
   const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema:
-      currState === "Sign up" ? signUpValidationSchema : loginValidationSchema,
+    initialValues,
+    validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
       try {
         const url = currState === "Sign up" ? "/api/signup" : "/api/login";
         const response = await axios.post(url, values);
-        console.log(response.data); // Log the response data from the server
-        alert(response.data.message); // Show appropriate message to user
+        setMessage(response.data.message); // Display server message
       } catch (error) {
-        console.error("Error occurred:", error.message); // Handle error
-        alert("An error occurred. Please try again."); // Show generic error message
+        setMessage("An error occurred. Please try again."); // Display error message
       } finally {
-        setSubmitting(false); // Ensure form is not stuck in submitting state
+        setSubmitting(false);
       }
     },
   });
@@ -48,9 +55,14 @@ function LoginForm({ setLogin }) {
   const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
     formik;
 
+  const handleStateChange = useCallback(() => {
+    setCurrState((prev) => (prev === "Sign up" ? "Login" : "Sign up"));
+  }, []);
+
   return (
     <>
       <div className="form-container">
+        {message && <div className="bg-info">{message}</div>}
         <form method="post" className="form" onSubmit={handleSubmit}>
           <div className="form-title">
             <h2>{currState}</h2>
@@ -109,7 +121,6 @@ function LoginForm({ setLogin }) {
             {errors.terms && touched.terms ? (
               <span className="text-danger">{errors.terms}</span>
             ) : null}
-
             {!errors.terms && touched.terms ? (
               <span className="text-success">Agreed</span>
             ) : null}
@@ -120,20 +131,14 @@ function LoginForm({ setLogin }) {
             {currState === "Login" ? (
               <p>
                 Don't have an account?{" "}
-                <span
-                  onClick={() => setCurrState("Sign up")}
-                  className="btn span-btn"
-                >
+                <span onClick={handleStateChange} className="btn span-btn">
                   Create an account
                 </span>
               </p>
             ) : (
               <p>
                 Already Have an account?{" "}
-                <span
-                  onClick={() => setCurrState("Login")}
-                  className="btn span-btn"
-                >
+                <span onClick={handleStateChange} className="btn span-btn">
                   Login
                 </span>
               </p>

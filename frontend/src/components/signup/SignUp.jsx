@@ -7,6 +7,7 @@ const SignUp = ({ handleBlur, handleChange, values, errors, touched }) => {
       <input
         name="name"
         type="text"
+        required
         className="form-control"
         placeholder="Your name"
         onBlur={handleBlur}
@@ -22,6 +23,7 @@ const SignUp = ({ handleBlur, handleChange, values, errors, touched }) => {
         type="tel"
         name="phone"
         id="phone"
+        required
         className="form-control"
         placeholder="Your phone number"
         onBlur={handleBlur}
@@ -37,6 +39,7 @@ const SignUp = ({ handleBlur, handleChange, values, errors, touched }) => {
         type="email"
         name="email"
         id="email"
+        required
         className="form-control"
         placeholder="Your email"
         onBlur={handleBlur}

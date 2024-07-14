@@ -48,7 +48,12 @@ function Cart() {
         </h6>
         {items.map((item, index) => (
           <div key={index} className="cart-item">
-            <img src={item.imageUrl} alt={item.name} className="item-image" />
+            <img
+              src={item.imageUrl}
+              alt={item.name}
+              className="item-image"
+              loading="lazy"
+            />
             <div className="item-details">
               <h5>{item.name}</h5>
               <p>{item.description}</p>
