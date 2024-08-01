@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./navbar.scss";
 import { FiSearch, FiMenu } from "react-icons/fi";
 import { NavLink, useNavigate } from "react-router-dom";

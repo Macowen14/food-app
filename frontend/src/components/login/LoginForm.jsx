@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback } from "react";
 import "./loginForm.scss";
 import { FaTimes as FaX } from "react-icons/fa";
 import SignUp from "../signup/SignUp";
@@ -7,6 +7,7 @@ import axios from "axios";
 import { signUpValidationSchema } from "../signup/signUpValidation";
 import { loginValidationSchema } from "./loginValidation";
 
+// eslint-disable-next-line react/prop-types
 function LoginForm({ setLogin }) {
   const [currState, setCurrState] = useState("Login");
   const [message, setMessage] = useState(null); // State to store messages
@@ -130,7 +131,7 @@ function LoginForm({ setLogin }) {
             </button>
             {currState === "Login" ? (
               <p>
-                Don't have an account?{" "}
+                Dont have an account?{" "}
                 <span onClick={handleStateChange} className="btn span-btn">
                   Create an account
                 </span>

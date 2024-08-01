@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const fetchMealsData = async () => {
+  // eslint-disable-next-line no-useless-catch
   try {
     const response = await axios.get("http://localhost:5000/api/meals");
     return response.data;

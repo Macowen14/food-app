@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect } from "react";
+import { lazy, Suspense, useState } from "react";
 import "./App.scss";
 import { Routes, Route } from "react-router-dom";
 import { CartProvider } from "react-use-cart";

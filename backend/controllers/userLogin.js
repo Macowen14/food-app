@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   const connection = await db.getConnection();
 
   connection.query(
-    "SELECT * FROM users WHERE email = ?",
+    "SELECT * FROM users WHERE email = ? ",
     [email],
     async (err, results) => {
       if (err) {
