@@ -41,20 +41,76 @@ function LoginForm({ setLogin }) {
     initialValues,
     validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
+      console.log("Form values:", values); // Log the form values
+
       try {
         const url = currState === "Sign up" ? "/api/signup" : "/api/login";
-        const response = await axios.post(url, values);
-        setMessage(response.data.message); // Display server message
+        console.log("Request URL:", url); // Log the request URL
+
+        // Prepare data based on the current state
+        const data =
+          currState === "Sign up"
+            ? {
+                name: values.name,
+                email: values.email,
+                password: values.password,
+                phone: values.phone,
+              }
+            : { email: values.email, password: values.password };
+
+        console.log("Request data:", data); // Log the request data
+
+        // Send request to backend
+        const response = await axios.post(url, data);
+        console.log(response);
+        console.log("Response status:", response.status); // Log the response status
+        console.log("Response data:", response.data); // Log the response data
+
+        // Update message based on the response
+        setMessage(response.data.message);
+
+        // Show alert based on the action and response
+        if (
+          currState === "Login" &&
+          response.data.message === "Login successful"
+        ) {
+          alert("Login successful!");
+        }
+        if (
+          currState === "Sign up" &&
+          response.data.message === "User registered successfully"
+        ) {
+          alert("Sign up successful!");
+        }
       } catch (error) {
-        setMessage("An error occurred. Please try again."); // Display error message
+        console.error("Error during submission:", error); // Log the error
+
+        // Handle error response
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.message
+        ) {
+          setMessage(error.response.data.message); // Display specific error message
+        } else {
+          setMessage("An error occurred. Please try again later.");
+        }
       } finally {
         setSubmitting(false);
       }
     },
   });
 
-  const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
-    formik;
+  const {
+    values,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    errors,
+    touched,
+    isValid,
+    isSubmitting,
+  } = formik;
 
   const handleStateChange = useCallback(() => {
     setCurrState((prev) => (prev === "Sign up" ? "Login" : "Sign up"));
@@ -63,8 +119,8 @@ function LoginForm({ setLogin }) {
   return (
     <>
       <div className="form-container">
-        {message && <div className="bg-info">{message}</div>}
         <form method="post" className="form" onSubmit={handleSubmit}>
+          {message && <div className="bg-info p-2 text-danger">{message}</div>}
           <div className="form-title">
             <h2>{currState}</h2>
             <span className="cancel-icon" onClick={() => setLogin(false)}>
@@ -126,19 +182,23 @@ function LoginForm({ setLogin }) {
               <span className="text-success">Agreed</span>
             ) : null}
 
-            <button className="btn btn-primary" type="submit">
+            <button
+              className="btn btn-primary"
+              type="submit"
+              disabled={!isValid || isSubmitting}
+            >
               {currState === "Sign up" ? "Create account" : "Login"}
             </button>
             {currState === "Login" ? (
               <p>
-                Dont have an account?{" "}
+                Don’t have an account?{" "}
                 <span onClick={handleStateChange} className="btn span-btn">
                   Create an account
                 </span>
               </p>
             ) : (
               <p>
-                Already Have an account?{" "}
+                Already have an account?{" "}
                 <span onClick={handleStateChange} className="btn span-btn">
                   Login
                 </span>

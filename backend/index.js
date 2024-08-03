@@ -28,6 +28,9 @@ app.use("/api/signup", signupRoute);
 app.use("/api/login", loginRoute);
 app.use("/api/meals", mealsRoute);
 
+app.get("/api/", (req, res) => {
+  res.send("Welcome");
+});
 const createTables = async () => {
   try {
     const connection = await db.getConnection();
@@ -40,11 +43,11 @@ const createTables = async () => {
         password VARCHAR(255) NOT NULL
       )
     `);
-    console.log("User table created successfully");
     connection.release();
+
     // Start the server
-    app.listen(5000, () => {
-      console.log("Server is running on port 5000");
+    app.listen(6000, () => {
+      console.log("Server is running on port 5000 .....");
     });
   } catch (err) {
     console.error("Error creating user table:", err);
